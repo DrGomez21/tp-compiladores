@@ -11,11 +11,11 @@ def main():
             if letra not in bool_espacio:
 
                 if letra == '"':
-                    
+                    pass
                 simbolos.get_comp_lex(letra)
 
 
-    print(contenido)
+    # print(contenido)
 
 if __name__ == "__main__":
     main()
