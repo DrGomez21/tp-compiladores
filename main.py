@@ -9,6 +9,9 @@ def main():
     for linea in contenido:
         for letra in linea:
             if letra not in bool_espacio:
+
+                if letra == '"':
+                    
                 simbolos.get_comp_lex(letra)
 
 
