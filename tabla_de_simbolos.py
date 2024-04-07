@@ -1,6 +1,9 @@
 def get_comp_lex(lexema): 
     ''' buscar un lexema y retorna el componente lexico '''
-    return tabla_de_simbolos[lexema]
+    try: 
+        return tabla_de_simbolos[lexema]
+    except: 
+        return -1
 
 
 # diccionario con simbolos iniciales 
