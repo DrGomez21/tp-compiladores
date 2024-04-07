@@ -10,8 +10,10 @@ def main():
         for letra in linea:
             if letra not in bool_espacio:
 
-                if letra == '"':
-                    
+                if letra == '"' and bool_es_string == False: #se esta iniciando un string 
+                    func_es_string()    
+                if letra == '"' and bool_es_string == True: # se esta terminando el string 
+                    func_not_string()
                 simbolos.get_comp_lex(letra)
 
 
