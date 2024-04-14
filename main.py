@@ -2,22 +2,19 @@ import re
 import tabla_de_simbolos as simbolos
 
 def main():
+
     archivo = open("entrada.txt", 'r')  
-    contenido = archivo.readlines() # Leer las lineas del archivo.
+    
+    content = archivo.read().split('\n')
+    separadores = r'([,:])' # Expresión regular que matchea con los simbolos separadores del json.
 
-    bool_espacio = '\n' or ' ' or '\t'
-    for linea in contenido:
-        for letra in linea:
-            if letra not in bool_espacio:
+    for texto in content:   # Se recorren las lineas del contenido del archivo.
+        texto_sin_espacios = texto.replace(' ', '')
+        listado_de_elementos = re.split(separadores, texto_sin_espacios)    # Obtenemos un listado de los componentes del json.
 
-                if letra == '"' and bool_es_string == False: #se esta iniciando un string 
-                    func_es_string()    
-                if letra == '"' and bool_es_string == True: # se esta terminando el string 
-                    func_not_string()
-                simbolos.get_comp_lex(letra)
-
-
-    # print(contenido)
+        for lexema in listado_de_elementos:
+            if lexema.strip():
+                print(simbolos.get_comp_lex(lexema.strip()))
 
 if __name__ == "__main__":
     main()
